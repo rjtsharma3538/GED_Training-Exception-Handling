@@ -9,15 +9,21 @@ public class MoodAnalyzer {
         this.message = message;
     }
 
-    public String analyeMood()
+    public String analyeMood() throws MoodAnalysisException
     {
         try {
-            String msg = this.message.toLowerCase();
+
+            if(message==null)
+                throw new MoodAnalysisException(ExceptionType.NULL_MOOD, "Mood is NULL");
+            String msg  = this.message.toLowerCase();
+
+            if(msg.isEmpty())
+                throw new MoodAnalysisException(ExceptionType.EMPTY_MOOD, "Mood is empty");
             if(msg.contains("sad"))
                 return "sad";
             return "happy";
         } catch (NullPointerException e) {
-            return "happy";
+            throw new MoodAnalysisException(ExceptionType.NULL_MOOD, "Mood is null");
         }
     }
 }
