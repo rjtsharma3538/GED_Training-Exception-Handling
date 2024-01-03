@@ -22,4 +22,11 @@ public class moodtest {
         msg = "I am in HAppy mood";
         assertEquals("happy", moodAnalyzer.analyeMood());
     }
+
+    @Test 
+    public void moodAnalyzerUC2(){
+        String msg = null;
+        MoodAnalyzer moodAnalyzer = new MoodAnalyzer(msg);
+        assertEquals("happy", moodAnalyzer.analyeMood());
+    }
 }
