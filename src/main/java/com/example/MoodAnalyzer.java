@@ -1,10 +1,17 @@
 package com.example;
 
 public class MoodAnalyzer {
-    public String analyeMood(String message)
+
+    private String message;
+
+    public MoodAnalyzer(String message)
     {
-        message = message.toLowerCase();
-        if(message.contains("sad"))
+        this.message = message.toLowerCase();
+    }
+
+    public String analyeMood()
+    {
+        if(this.message.contains("sad"))
             return "sad";
         return "happy";
     }
